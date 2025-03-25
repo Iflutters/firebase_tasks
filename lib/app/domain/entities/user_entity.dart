@@ -15,7 +15,7 @@ class UserEntity {
       required this.name,
       this.isActive = true,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,});
 
   @override
   String toString() {

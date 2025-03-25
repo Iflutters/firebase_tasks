@@ -1,9 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, overridden_fields, annotate_overrides
+// ignore_for_file: overridden_fields, annotate_overrides
+
 import 'package:firebase_tasks/app/domain/entities/user_entity.dart';
 
 ///DATA TRANSFER OBJECT
 class UserDTO extends UserEntity {
-  
   String? uid;
   String name;
   String email;
@@ -37,12 +37,20 @@ class UserDTO extends UserEntity {
       'isActive': user.isActive,
       'createdAt': user.createdAt
     };
-    return map;  
-  }          
+    return map;
+  }
+
+  factory UserDTO.fromMap(Map<String, dynamic> map) {
+    return UserDTO(
+        uid: map['uid'],
+        name: map['name'],
+        email: map['email'],
+        isActive: map['isActive']);
+  }
 
   @override
   String toString() {
     return 'UserDTO(uid: $uid, name: $name, email: $email, password: $password,'
-    ' isActive: $isActive, createdAt: $createdAt, updatedAt: $updatedAt)';
+        ' isActive: $isActive, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }

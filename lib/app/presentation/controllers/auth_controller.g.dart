@@ -113,6 +113,22 @@ mixin _$AuthController on _AuthControllerBase, Store {
     return _$signupAsyncAction.run(() => super.signup(context));
   }
 
+  late final _$loginAsyncAction =
+      AsyncAction('_AuthControllerBase.login', context: context);
+
+  @override
+  Future<bool> login(BuildContext context) {
+    return _$loginAsyncAction.run(() => super.login(context));
+  }
+
+  late final _$recoveryPassAsyncAction =
+      AsyncAction('_AuthControllerBase.recoveryPass', context: context);
+
+  @override
+  Future<bool> recoveryPass(BuildContext context) {
+    return _$recoveryPassAsyncAction.run(() => super.recoveryPass(context));
+  }
+
   late final _$_AuthControllerBaseActionController =
       ActionController(name: '_AuthControllerBase', context: context);
 
